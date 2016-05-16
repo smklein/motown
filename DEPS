@@ -6,7 +6,7 @@
 # To test manually, run:
 #   python tools/deps2git/deps2git.py -o .DEPS.git -w <gclientdir>
 # where <gcliendir> is the absolute path to the directory containing the
-# .gclient file (the parent of 'src').
+# .gclient file (the parent of 'motown').
 #
 # Then commit .DEPS.git locally (gclient doesn't like dirty trees) and run
 #   gclient sync
@@ -39,119 +39,119 @@ allowed_hosts = [
 ]
 
 deps = {
-  'src/base':
+  'motown/base':
    Var('chromium_git') + '/external/github.com/domokit/base' + '@' +  Var('base_revision'),
 
-  'src/buildtools':
+  'motown/buildtools':
    Var('chromium_git') + '/chromium/buildtools.git' + '@' +  Var('buildtools_revision'),
 
-  'src/testing/gtest':
+  'motown/testing/gtest':
    Var('chromium_git') + '/external/googletest.git' + '@' + 'be1868139ffe0ccd0e8e3b37292b84c821d9c8ad', # from svn revision 704
 
-  'src/testing/gmock':
+  'motown/testing/gmock':
    Var('chromium_git') + '/external/googlemock.git' + '@' + '29763965ab52f24565299976b936d1265cb6a271', # from svn revision 501
 
-  'src/third_party/angle':
+  'motown/third_party/angle':
    Var('chromium_git') + '/angle/angle.git' + '@' +  Var('angle_revision'),
 
-  'src/third_party/icu':
+  'motown/third_party/icu':
    Var('chromium_git') + '/chromium/deps/icu.git' + '@' + '94e4b770ce2f6065d4261d29c32683a6099b9d93',
 
-  'src/tools/grit':
+  'motown/tools/grit':
     Var('chromium_git') + '/external/grit-i18n.git' + '@' + 'c1b1591a05209c1ad467e845ba8543c22f9072af', # from svn revision 189
 
-  'src/dart':
+  'motown/dart':
     Var('chromium_git') + '/external/github.com/dart-lang/sdk.git' + '@' + Var('dart_revision'),
 
-  'src/tonic':
+  'motown/tonic':
     Var('chromium_git') + '/external/github.com/domokit/tonic' + '@' + Var('tonic_revision'),
 
-  'src/dart/third_party/observatory_pub_packages':
+  'motown/dart/third_party/observatory_pub_packages':
     Var('chromium_git') +
     '/external/github.com/dart-lang/observatory_pub_packages' + '@' +
     Var('dart_observatory_packages_revision'),
 
-  'src/dart/third_party/root_certificates':
+  'motown/dart/third_party/root_certificates':
     Var('chromium_git') +
     '/external/github.com/dart-lang/root_certificates' + '@' +
     Var('dart_root_certificates_revision'),
 
-  'src/third_party/glm':
+  'motown/third_party/glm':
     Var('chromium_git') + '/external/github.com/g-truc/glm' + '@' + '93d09e0e93ca6fe3d9dc6398489a54a3f9cf76db',
 
-  'src/third_party/yasm/source/patched-yasm':
+  'motown/third_party/yasm/source/patched-yasm':
    Var('chromium_git') + '/chromium/deps/yasm/patched-yasm.git' + '@' + '7da28c6c7c6a1387217352ce02b31754deb54d2a',
 
-  'src/third_party/smhasher/src':
+  'motown/third_party/smhasher/src':
     Var('chromium_git') + '/external/smhasher.git' + '@' + 'e87738e57558e0ec472b2fc3a643b838e5b6e88f',
 
-  'src/third_party/pywebsocket/src':
+  'motown/third_party/pywebsocket/src':
     Var('chromium_git') + '/external/pywebsocket/src.git' + '@' + 'cb349e87ddb30ff8d1fa1a89be39cec901f4a29c',
 
-  'src/third_party/mesa/src':
+  'motown/third_party/mesa/src':
    Var('chromium_git') + '/chromium/deps/mesa.git' + '@' + '071d25db04c23821a12a8b260ab9d96a097402f0',
 
-  'src/third_party/boringssl/src':
+  'motown/third_party/boringssl/src':
    'https://boringssl.googlesource.com/boringssl.git' + '@' +  Var('boringssl_revision'),
 
-  'src/third_party/requests/src':
+  'motown/third_party/requests/src':
     Var('chromium_git') + '/external/github.com/kennethreitz/requests.git' + '@' + 'f172b30356d821d180fa4ecfa3e71c7274a32de4',
 
-  'src/third_party/pyelftools':
+  'motown/third_party/pyelftools':
     Var('chromium_git') + '/chromiumos/third_party/pyelftools.git' + '@' + '19b3e610c86fcadb837d252c794cb5e8008826ae',
 
-  'src/third_party/breakpad/src':
+  'motown/third_party/breakpad/src':
     Var('chromium_git') + '/external/google-breakpad/src.git' + '@' + '242fb9a38db6ba534b1f7daa341dd4d79171658b', # from svn revision 1471
 
-  'src/third_party/lss':
+  'motown/third_party/lss':
     Var('chromium_git') + '/external/linux-syscall-support/lss.git' + '@' + Var('lss_revision'),
 
-  'src/third_party/leveldatabase/src':
+  'motown/third_party/leveldatabase/src':
     Var('chromium_git') + '/external/leveldb.git' + '@' + '40c17c0b84ac0b791fb434096fd5c05f3819ad55',
 
-  'src/third_party/snappy/src':
+  'motown/third_party/snappy/src':
     Var('chromium_git') + '/external/snappy.git' + '@' + '762bb32f0c9d2f31ba4958c7c0933d22e80c20bf',
 
-  'src/third_party/ffmpeg':
+  'motown/third_party/ffmpeg':
      Var('chromium_git') + '/chromium/third_party/ffmpeg.git' + '@' + '6f7f37e8c16db3bad5624c7504e710c54bdb7bf5',
 
-  'src/third_party/libcxx/libcxx':
+  'motown/third_party/libcxx/libcxx':
      Var('chromium_git') + '/chromium/llvm-project/libcxx.git' + '@' + '2dcc9a932e33ac4228eedcb6e026ac480daa8e45',
 
-  'src/third_party/libcxx/libcxxabi':
+  'motown/third_party/libcxx/libcxxabi':
      Var('chromium_git') + '/chromium/llvm-project/libcxxabi.git' + '@' + '3a1fd0deeabcefb42463eb0ac9a570140679e605',
 
-  'src/url':
+  'motown/url':
      Var('chromium_git') + '/external/github.com/domokit/gurl' + '@' +  Var('gurl_revision'),
 }
 
 deps_os = {
   'android': {
-    'src/third_party/colorama/src':
+    'motown/third_party/colorama/src':
      Var('chromium_git') + '/external/colorama.git' + '@' + '799604a1041e9b3bc5d2789ecbd7e8db2e18e6b8',
 
-    'src/third_party/jsr-305/src':
+    'motown/third_party/jsr-305/src':
         Var('chromium_git') + '/external/jsr-305.git' + '@' + '642c508235471f7220af6d5df2d3210e3bfc0919',
 
-    'src/third_party/junit/src':
+    'motown/third_party/junit/src':
       Var('chromium_git') + '/external/junit.git' + '@' + '45a44647e7306262162e1346b750c3209019f2e1',
 
-    'src/third_party/mockito/src':
+    'motown/third_party/mockito/src':
       Var('chromium_git') + '/external/mockito/mockito.git' + '@' + 'ed99a52e94a84bd7c467f2443b475a22fcc6ba8e',
 
-    'src/third_party/robolectric/lib':
+    'motown/third_party/robolectric/lib':
       Var('chromium_git') + '/chromium/third_party/robolectric.git' + '@' + '6b63c99a8b6967acdb42cbed0adb067c80efc810',
 
-    'src/third_party/appurify-python/src':
+    'motown/third_party/appurify-python/src':
      Var('chromium_git') + '/external/github.com/appurify/appurify-python.git' + '@' + 'ee7abd5c5ae3106f72b2a0b9d2cb55094688e867',
 
-    'src/third_party/freetype-android/src':
+    'motown/third_party/freetype-android/src':
        Var('chromium_git') + '/chromium/src/third_party/freetype.git' + '@' + 'd1028db70bea988d1022e4d463de66581c696160',
 
-    'src/third_party/requests/src':
+    'motown/third_party/requests/src':
       Var('chromium_git') + '/external/github.com/kennethreitz/requests.git' + '@' + 'f172b30356d821d180fa4ecfa3e71c7274a32de4',
 
-    'src/third_party/pyelftools':
+    'motown/third_party/pyelftools':
      Var('chromium_git') + '/chromiumos/third_party/pyelftools.git' + '@' + '19b3e610c86fcadb837d252c794cb5e8008826ae',
 
   },
@@ -167,26 +167,26 @@ hooks = [
     'pattern': '.',
     'action': [
         'python',
-        'src/build/landmines.py',
+        'motown/build/landmines.py',
     ],
   },
   {
     # Pull clang if needed or requested via GYP_DEFINES.
     'name': 'clang',
     'pattern': '.',
-    'action': ['python', 'src/tools/clang/scripts/update.py', '--if-needed'],
+    'action': ['python', 'motown/tools/clang/scripts/update.py', '--if-needed'],
   },
   {
     # Pull dart sdk if needed
     'name': 'dart',
     'pattern': '.',
-    'action': ['python', 'src/tools/dart/update.py'],
+    'action': ['python', 'motown/tools/dart/update.py'],
   },
   {
     # This downloads android_tools according to tools/android/VERSION_*.
     'name': 'android_tools',
     'pattern': '.',
-    'action': ['python', 'src/tools/android/download_android_tools.py'],
+    'action': ['python', 'motown/tools/android/download_android_tools.py'],
   },
   {
     # This downloads SDK extras and puts them in the
@@ -196,56 +196,56 @@ hooks = [
     'pattern': '.',
     # When adding a new sdk extras package to download, add the package
     # directory and zip file to .gitignore in third_party/android_tools.
-    'action': ['python', 'src/build/download_sdk_extras.py'],
+    'action': ['python', 'motown/build/download_sdk_extras.py'],
   },
   # Pull GN binaries. This needs to be before running GYP below.
   {
     'name': 'gn_linux64',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'chromium-gn',
-                '-s', 'src/buildtools/linux64/gn.sha1',
+                '-s', 'motown/buildtools/linux64/gn.sha1',
     ],
   },
   {
     'name': 'gn_mac',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=darwin',
                 '--no_auth',
                 '--bucket', 'chromium-gn',
-                '-s', 'src/buildtools/mac/gn.sha1',
+                '-s', 'motown/buildtools/mac/gn.sha1',
     ],
   },
   # Pull clang-format binaries using checked-in hashes.
   {
     'name': 'clang_format_linux',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'chromium-clang-format',
-                '-s', 'src/buildtools/linux64/clang-format.sha1',
+                '-s', 'motown/buildtools/linux64/clang-format.sha1',
     ],
   },
   {
     'name': 'clang_format_mac',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=darwin',
                 '--no_auth',
                 '--bucket', 'chromium-clang-format',
-                '-s', 'src/buildtools/mac/clang-format.sha1',
+                '-s', 'motown/buildtools/mac/clang-format.sha1',
     ],
   },
   # Pull binutils for linux, enabled debug fission for faster linking /
@@ -253,10 +253,10 @@ hooks = [
   # https://code.google.com/p/chromium/issues/detail?id=352046
   {
     'name': 'binutils',
-    'pattern': 'src/third_party/binutils',
+    'pattern': 'motown/third_party/binutils',
     'action': [
         'python',
-        'src/third_party/binutils/download.py',
+        'motown/third_party/binutils/download.py',
     ],
   },
   # Pull the prebuilt network service binaries according to
@@ -265,7 +265,7 @@ hooks = [
     'name': 'download_network_service',
     'pattern': '',
     'action': [ 'python',
-                'src/mojo/public/tools/download_network_service.py',
+                'motown/mojo/public/tools/download_network_service.py',
                 '--tools-directory', '../../../tools',
     ],
   },
@@ -273,11 +273,11 @@ hooks = [
     # Ensure that we don't accidentally reference any .pyc files whose
     # corresponding .py files have already been deleted.
     'name': 'remove_stale_pyc_files',
-    'pattern': 'src/tools/.*\\.py',
+    'pattern': 'motown/tools/.*\\.py',
     'action': [
         'python',
-        'src/tools/remove_stale_pyc_files.py',
-        'src/tools',
+        'motown/tools/remove_stale_pyc_files.py',
+        'motown/tools',
     ],
   },
   {
@@ -286,70 +286,70 @@ hooks = [
     'name': 'gotools',
     'pattern': '.',
     'action': [
-        'python', 'src/tools/go/download.py',
+        'python', 'motown/tools/go/download.py',
     ],
   },
   # Pull dump_syms resources using checked-in hashes.
   {
     'name': 'dump_syms_linux64',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'mojo',
-                '-s', 'src/mojo/tools/linux64/dump_syms.sha1',
+                '-s', 'motown/mojo/tools/linux64/dump_syms.sha1',
     ],
   },
   # Pull symupload resources using checked-in hashes.
   {
     'name': 'symupload_linux64',
     'pattern': '.',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'mojo',
-                '-s', 'src/mojo/tools/linux64/symupload.sha1',
+                '-s', 'motown/mojo/tools/linux64/symupload.sha1',
 	],
   },
   # Pull prediction resources using checked-in hashes.
   {
     'name': 'prediction_resources',
     'pattern': '',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--no_auth',
                 '--bucket', 'mojo/prediction',
-                '-d', 'src/services/prediction/res',
+                '-d', 'motown/services/prediction/res',
     ],
   },
   # Pull the mojom parser binaries using checked-in hashes.
   {
     'name': 'mojom_tool',
     'pattern': '',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'mojo/mojom_parser/linux64',
-                '-s', 'src/mojo/public/tools/bindings/mojom_tool/bin/linux64/mojom.sha1',
+                '-s', 'motown/mojo/public/tools/bindings/mojom_tool/bin/linux64/mojom.sha1',
     ],
   },
   {
     'name': 'mojom_tool',
     'pattern': '',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=darwin',
                 '--no_auth',
                 '--bucket', 'mojo/mojom_parser/mac64',
-                '-s', 'src/mojo/public/tools/bindings/mojom_tool/bin/mac64/mojom.sha1',
+                '-s', 'motown/mojo/public/tools/bindings/mojom_tool/bin/mac64/mojom.sha1',
     ],
   },
 
@@ -357,25 +357,25 @@ hooks = [
   {
     'name': 'mojom_generators',
     'pattern': '',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'mojo/mojom_parser/linux64/generators',
-                '-d', 'src/mojo/public/tools/bindings/mojom_tool/bin/linux64/generators',
+                '-d', 'motown/mojo/public/tools/bindings/mojom_tool/bin/linux64/generators',
     ],
   },
   {
     'name': 'mojom_generators',
     'pattern': '',
-    'action': [ 'src/tools/download_from_google_storage.py',
+    'action': [ 'motown/tools/download_from_google_storage.py',
                 '--no_resume',
                 '--quiet',
                 '--platform=linux*',
                 '--no_auth',
                 '--bucket', 'mojo/mojom_parser/linux64/generators',
-                '-d', 'src/mojo/public/tools/bindings/mojom_tool/bin/linux64/generators',
+                '-d', 'motown/mojo/public/tools/bindings/mojom_tool/bin/linux64/generators',
     ],
   },
 ]
