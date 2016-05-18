@@ -22,6 +22,8 @@ vars = {
   'base_revision': 'f613c71b2ed7fe4b4eff33fb7fd3b53e640b4359',
   'buildtools_revision': '222bd42ce39d1bd8f08fe089b066f49c469e1cdf',
   'gurl_revision': '561639dfb664ee4c14371f569213b9d41f4fe110',
+  'mojo_devtools_revision': '176889fd2e17f988727847a03b00c158af8a6c52',
+  'mojo_sdk_revision': '3762c8c0b74b48b00786a42fca8f7db7f761935f',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -42,6 +44,12 @@ deps = {
 
   'motown/testing/gmock':
    Var('chromium_git') + '/external/googlemock.git' + '@' + '29763965ab52f24565299976b936d1265cb6a271', # from svn revision 501
+
+  'motown/mojo/public':
+   Var('chromium_git') + '/external/github.com/domokit/mojo_sdk.git' + '@' + Var('mojo_sdk_revision'),
+
+  'motown/third_party/mojo_devtools':
+  'https://github.com/domokit/devtools.git' + '@' + Var('mojo_devtools_revision'),
 
   'motown/third_party/icu':
    Var('chromium_git') + '/chromium/deps/icu.git' + '@' + '94e4b770ce2f6065d4261d29c32683a6099b9d93',
@@ -177,26 +185,6 @@ hooks = [
     'action': [ 'python',
                 'motown/mojo/public/tools/download_network_service.py',
                 '--tools-directory', '../../../tools',
-    ],
-  },
-  {
-    # Ensure that we don't accidentally reference any .pyc files whose
-    # corresponding .py files have already been deleted.
-    'name': 'remove_stale_pyc_files',
-    'pattern': 'motown/tools/.*\\.py',
-    'action': [
-        'python',
-        'motown/tools/remove_stale_pyc_files.py',
-        'motown/tools',
-    ],
-  },
-  {
-    # This downloads linux and android Go binaries according to
-    # tools/go/VERSION.
-    'name': 'gotools',
-    'pattern': '.',
-    'action': [
-        'python', 'motown/tools/go/download.py',
     ],
   },
 ]
