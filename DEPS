@@ -23,7 +23,7 @@ vars = {
   'buildtools_revision': '222bd42ce39d1bd8f08fe089b066f49c469e1cdf',
   'gurl_revision': '561639dfb664ee4c14371f569213b9d41f4fe110',
   'mojo_devtools_revision': '176889fd2e17f988727847a03b00c158af8a6c52',
-  'mojo_sdk_revision': '3762c8c0b74b48b00786a42fca8f7db7f761935f',
+  'mojo_sdk_revision': 'e56020ec493a1f8d19e3be11e2a174e11beb52d6',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
