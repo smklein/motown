@@ -98,5 +98,6 @@ v8.log
 # downloaded prediction dictionary files.
 /services/prediction/res/*.dict
 
-# Mojo SDK
+# Mojo devtools and SDK
+/mojo/devtools
 /mojo/public
