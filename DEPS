@@ -48,7 +48,7 @@ deps = {
   'motown/mojo/public':
    Var('chromium_git') + '/external/github.com/domokit/mojo_sdk.git' + '@' + Var('mojo_sdk_revision'),
 
-  'motown/third_party/mojo_devtools':
+  'motown/mojo/devtools':
   'https://github.com/domokit/devtools.git' + '@' + Var('mojo_devtools_revision'),
 
   'motown/third_party/icu':
@@ -176,6 +176,16 @@ hooks = [
         'python',
         'motown/third_party/binutils/download.py',
     ],
+  },
+  # Pull the mojo_shell binary based on //third_party/mojo/MOJO_VERSION
+  {
+    'name': 'download_mojo_shell',
+    'pattern': '',
+    'action': [ 'python',
+                'motown/mojo/public/tools/download_shell_binary.py',
+                '--tools-directory=../../../tools',
+                '--version-file=../../../third_party/mojo/MOJO_VERSION',
+              ],
   },
   # Pull the prebuilt network service binaries according to
   # mojo/public/tools/NETWORK_SERVICE_VERSION.
