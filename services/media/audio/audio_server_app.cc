@@ -9,8 +9,6 @@
 #include "mojo/public/cpp/application/application_impl.h"
 #include "services/media/audio/audio_server_app.h"
 
-#define VERBOSE 0
-
 namespace mojo {
 namespace media {
 namespace audio {
@@ -23,17 +21,16 @@ void AudioServerApp::Initialize(ApplicationImpl* app) {
 }
 
 bool AudioServerApp::ConfigureIncomingConnection(
-    ApplicationConnection* connection) {
-  connection->AddService(this);
+    ServiceProviderImpl* service_provider_impl) {
+  service_provider_impl->AddService<AudioServer>(
+      [this](const ConnectionContext& connection_context,
+             InterfaceRequest<AudioServer> audio_server_request) {
+        bindings_.AddBinding(&server_impl_, audio_server_request.Pass());
+      });
   return true;
 }
 
 void AudioServerApp::Quit() {
-}
-
-void AudioServerApp::Create(const ConnectionContext& connection_context,
-                            InterfaceRequest<AudioServer> request) {
-  bindings_.AddBinding(&server_impl_, request.Pass());
 }
 
 }  // namespace audio

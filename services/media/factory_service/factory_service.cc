@@ -29,14 +29,13 @@ void MediaFactoryService::Initialize(ApplicationImpl* app) {
 }
 
 bool MediaFactoryService::ConfigureIncomingConnection(
-    ApplicationConnection* connection) {
-  connection->AddService<MediaFactory>(this);
+    ServiceProviderImpl* service_provider_impl) {
+  service_provider_impl->AddService<MediaFactory>(
+      [this](const ConnectionContext& connection_context,
+             InterfaceRequest<MediaFactory> media_factory_request) {
+        bindings_.AddBinding(this, media_factory_request.Pass());
+      });
   return true;
-}
-
-void MediaFactoryService::Create(const ConnectionContext& connection_context,
-                                 InterfaceRequest<MediaFactory> request) {
-  bindings_.AddBinding(this, request.Pass());
 }
 
 void MediaFactoryService::CreatePlayer(InterfaceHandle<SeekingReader> reader,
