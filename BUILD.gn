@@ -9,11 +9,13 @@ group("default") {
   testonly = true
 
   deps = [
+    "//examples",
     "//services",
   ]
 
   if (is_linux) {
     deps += [
+      "//examples(//build/toolchain/fusl:fusl_${current_cpu})",
       "//services(//build/toolchain/fusl:fusl_${current_cpu})",
     ]
   }
